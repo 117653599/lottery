@@ -1,9 +1,11 @@
 'use strict'
 
+const data = require('../datas/all.json')
 const list = {
-  name: 'hi,list'
+  name: '获奖名单',
+  data: data
 };
 
 module.exports = (req, res) => {
-  res.render('list', list)
+  res.send(list)
 }
