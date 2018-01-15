@@ -1,0 +1,8 @@
+*.log
+*.patch
+.DS_Store
+
+.idea/
+.svn/
+node_modules/
+public/assets/
