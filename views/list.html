@@ -2,19 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title><%= name %></title>
+  <link rel="stylesheet" href="<%= __public_path__ %>app.css">
 </head>
 <body>
-  <h1>员工列表</h1>
-  <p> Welcome to <%= data[1][1]%></p>
-  <ul>
-    <% if(data[1][1]) { %>
-      <% for(var i=1;i<data.length;i++){ %>
-      <li>工号：<%= data[i][0] %>/姓名：<%= data[i][1] %>/部门：<%= data[i][2] %></li>
-    <% } } %>
-  </ul>
-  <div id="app"></div>
+  <div><%= name %></div>
+  <span id="app"></span>
+  <script src="<%= __public_path__ %>app.js"></script>
 </body>
-<!-- <script src="./public/javascripts/index.js"></script> -->
-<script src="../asset/app.js"></script>
 </html>
