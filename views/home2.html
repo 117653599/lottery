@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= name %></title>
+  <link rel="stylesheet" href="<%= __public_path__ %>app.css">
+</head>
+<body>
+  <div><%= name %></div>
+  <div><a id="load" href="javascript:;">导入load</a></div>
+  <div><a id="list" href="javascript:;">查看list</a></div>
+  <div><a href="javascript:;" onClick="add(1)" class="active">开始抽奖1等奖</a></div>
+  <div><a href="javascript:;" onClick="add(2)" class="default">开始抽奖2等奖</a></div>
+  <div><a href="javascript:;" onClick="add(3)" class="default">开始抽奖3等奖</a></div>
+  <div><a href="javascript:;" onClick="add(4)" class="default">开始抽奖4等奖</a></div>
+  <div><a id="app" href="javascript:;">app</a></div>
+  <script src="<%= __public_path__ %>app.js"></script>
+</body>
+</html>

@@ -1,3 +1,131 @@
+html,
 body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  background: url(../img/bg.jpg) no-repeat fixed top;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+}
+
+.btn {
+  /* background:url(../img/btn.png) 0px 0px no-repeat; */
+  width: 350px;
+  height: 80px;
+  display: block;
+  margin: 50px auto;
+  cursor: pointer;
+  text-align: center;
+  font-size: 50px;
+  color: #e00d1e;
+  padding-top: 10px;
+  padding-left: 40px;
   background: #fff;
+}
+
+.main_bg {
+  height: 560px;
+  width: 1130px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -565px;
+}
+
+.result {
+  width: 930px;
+  height: 360px;
+  margin: 70px auto;
+  margin-bottom: 30px;
+  z-index: 1000;
+  text-align: center;
+  font-size: 65px;
+  color: #000;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.result-parent {
+  flex: 1;
+  color: red;
+}
+
+.result-children {
+  width: 180px;
+  height: 60px;
+  overflow: hidden;
+  margin: 0 4px 4px 0;
+  border: 1px solid #eee;
+  font-size: 20px;
+  float: left;
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-items: center;
+  text-align: center;
+  background: yellow;
+}
+
+.result-children span {
+  flex: 1;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  -webkit-flex: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.num_bg_box,
+.num_box {
+  position: absolute;
+  left: 115px;
+  width: 900px;
+  height: 160px;
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-items: center;
+  text-align: center;
+}
+
+.num_bg,
+.num {
+  width: 112px;
+  height: 130px;
+  margin-top: 15px;
+  flex: 1;
+}
+
+.num_bg {
+  background: url(../img/num_bg1.png) no-repeat center;
+}
+
+.num {
+  background: url(../img/num.png) top  repeat-y;
+  background-size: 90px 1200px;
+  line-height: 130px;
+}
+
+.num_header {
+  /* background:url(images/header.png) top  repeat-y; */
+  background-size: 90px 720px;
+  width: 102px;
+  height: 120px;
+  float: left;
+  margin-right: 9px;
+  margin-top: 10px;
 }

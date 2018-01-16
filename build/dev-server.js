@@ -17,7 +17,7 @@ compiler.watch({
   } else {
     console.log(chalk.green('[webpack]: build done!'));
   }
-  console.log(chalk.green('\n', stats.toString()));
+  console.log('\n', stats.toString());
 });
 
 // Rewrite views to development mode

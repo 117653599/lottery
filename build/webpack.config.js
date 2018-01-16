@@ -43,12 +43,12 @@ const webpackConfig = {
       },
       {
         test: /\.(png|svg|gif|jpg|jpe?g|icon?)$/,
-        loader: 'url?limit=8192&name=[name]-[hash].[ext]',
+        loader: 'url-loader?limit=8192&name=[name]-[hash].[ext]',
       },
       {
         test: /\.js$/,
         loader: 'eslint-loader',
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /lib/],
         options: {
           formatter: require('eslint-friendly-formatter')
         }
