@@ -102,37 +102,13 @@ const Lottery = {
     $('.result-parent').append(string)
   }
 }
-$(function () {
-  // 从配置文件获取
-  Lottery._numTotal = 25
-  const everyInter = 500
-  const totalTime = Lottery._numTotal * 500
-  $('.btn').click(function () {
-    if (Lottery.isRunning()) {
-      Lottery.addUsers()
-      const fn = function () {
-        if (Lottery._numTime > Lottery._numTotal - 2) {
-          return
-        }
-        const numTime = Lottery._numTime
-        const user = Lottery._Users[numTime]
-        Lottery.writeHtml(user)
-        console.log('fn-numTime:' + numTime + ':' + user.name)
-        Lottery._numTime = Lottery._numTime + 1
-      }
-      Lottery._intervalTimes = setInterval(fn, everyInter)
-      setTimeout(() => {
-        clearInterval(Lottery._intervalTimes)
-        Lottery.stop()
-        Lottery.stopToUser(Lottery._currentUser)
-      }, totalTime)
-      return
-    }
-    Lottery.start(200)
-  })
-  $(document).keydown(function (ee) {
-    const e = ee || window.event
-    if (e.keyCode === 32) {
+module.exports = function() {
+    $(function () {
+    // 从配置文件获取
+    Lottery._numTotal = 25
+    const everyInter = 500
+    const totalTime = Lottery._numTotal * 500
+    $('.btn').click(function () {
       if (Lottery.isRunning()) {
         Lottery.addUsers()
         const fn = function () {
@@ -154,30 +130,57 @@ $(function () {
         return
       }
       Lottery.start(200)
-    }
-  })
-  // btn事件
-  // $('.btn').click(function() {
-  //   if (Lottery.isRunning()) {
-  //     Lottery.stop()
-  //     var user = Lottery.randomUser(Users)
-  //     Lottery.stopToUser(user)
-  //     return
-  //   }
-  //   var i = 0
-  //   Lottery.start(200)
-  // })
+    })
+    $(document).keydown(function (ee) {
+      const e = ee || window.event
+      if (e.keyCode === 32) {
+        if (Lottery.isRunning()) {
+          Lottery.addUsers()
+          const fn = function () {
+            if (Lottery._numTime > Lottery._numTotal - 2) {
+              return
+            }
+            const numTime = Lottery._numTime
+            const user = Lottery._Users[numTime]
+            Lottery.writeHtml(user)
+            console.log('fn-numTime:' + numTime + ':' + user.name)
+            Lottery._numTime = Lottery._numTime + 1
+          }
+          Lottery._intervalTimes = setInterval(fn, everyInter)
+          setTimeout(() => {
+            clearInterval(Lottery._intervalTimes)
+            Lottery.stop()
+            Lottery.stopToUser(Lottery._currentUser)
+          }, totalTime)
+          return
+        }
+        Lottery.start(200)
+      }
+    })
+    // btn事件
+    // $('.btn').click(function() {
+    //   if (Lottery.isRunning()) {
+    //     Lottery.stop()
+    //     var user = Lottery.randomUser(Users)
+    //     Lottery.stopToUser(user)
+    //     return
+    //   }
+    //   var i = 0
+    //   Lottery.start(200)
+    // })
 
-  // $(document).keydown(function (ee) {
-  //   const e = ee || window.event
-  //   if (e.keyCode === 32) {
-  //     if (Lottery.isRunning()) {
-  //       Lottery.stop()
-  //       const user = Lottery.randomUser(Users)
-  //       Lottery.stopToUser(user)
-  //       return
-  //     }
-  //     Lottery.start(200)
-  //   }
-  // })
-})
+    // $(document).keydown(function (ee) {
+    //   const e = ee || window.event
+    //   if (e.keyCode === 32) {
+    //     if (Lottery.isRunning()) {
+    //       Lottery.stop()
+    //       const user = Lottery.randomUser(Users)
+    //       Lottery.stopToUser(user)
+    //       return
+    //     }
+    //     Lottery.start(200)
+    //   }
+    // })
+  })
+}
+

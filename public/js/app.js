@@ -1,25 +1,24 @@
 require('../css/app.css')
 const $ = require('jquery')
-$('#app').on('click', () => {
-  $.get('/list?' + Math.random() * 1000, result => {
-    console.log(result)
-  })
-})
-$('#load').on('click', () => {
-  $.get('/load?' + Math.random() * 1000, result => {
-    if (result) {
-      console.log(result)
-    } else {
-      console.log(result)
-    }
-  })
-})
-$('#add').on('click', () => {
-  $.get('/add?' + Math.random() * 1000, result => {
-    if (result) {
-      console.log(result)
-    } else {
-      console.log(result)
-    }
-  })
-})
+
+const modules = {
+  home: require('./home'),
+  lottery: require('./lottery')
+}
+
+const matchModule = pathname => {
+  var parts = pathname.split('/')
+  if (parts && parts[1]) {
+    return parts[1]
+  }
+  return null
+}
+const ready = () => {
+  var moduleId = matchModule(window.location.pathname)
+  var module = modules[moduleId]
+  if (!module) {
+    module = modules.home
+  }
+  module()
+}
+$(document).ready(ready)

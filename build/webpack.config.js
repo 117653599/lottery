@@ -11,8 +11,7 @@ const joinBaseRoot = file => path.join(baseRoot, file);
 
 const webpackConfig = {
   entry: {
-    app: joinBaseRoot('public/js/app.js'),
-    lottery: joinBaseRoot('public/js/lottery.js')
+    app: joinBaseRoot('public/js/app.js')
   },
   output: {
     publicPath: publicPath,
