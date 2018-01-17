@@ -12,6 +12,6 @@ exports.init = app => {
   app.get('/lottery', lottery)
   app.get('/list', list)
   app.get('/load', load)
-  app.get('/add', add)
+  app.post('/add', add)
   return app
 }

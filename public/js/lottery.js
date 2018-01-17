@@ -102,8 +102,12 @@ const Lottery = {
     $('.result-parent').append(string)
   }
 }
-module.exports = function() {
-    $(function () {
+module.exports = function () {
+  console.log(window.innerHeight)
+  $(function () {
+    $('.lottery').css({
+      height: window.height
+    })
     // 从配置文件获取
     Lottery._numTotal = 25
     const everyInter = 500
@@ -183,4 +187,3 @@ module.exports = function() {
     // })
   })
 }
-

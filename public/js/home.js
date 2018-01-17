@@ -2,7 +2,7 @@ require('../css/app.css')
 const $ = require('jquery')
 
 module.exports = function () {
-  $('#app').on('click', () => {
+  $('#list').on('click', () => {
     $.get('/list?' + Math.random() * 1000, result => {
       console.log(result)
     })
@@ -16,8 +16,14 @@ module.exports = function () {
       }
     })
   })
+
+  // 数据存储有问题
+  const n = {
+    data: JSON.stringify([22235, 'hqlin22235', 'wmd22235'])
+  }
+
   $('#add').on('click', () => {
-    $.get('/add?' + Math.random() * 1000, result => {
+    $.post('/add', n, result => {
       if (result) {
         console.log(result)
       } else {

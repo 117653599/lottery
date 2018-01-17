@@ -24,7 +24,6 @@ body {
   color: #e00d1e;
   padding-top: 10px;
   padding-left: 40px;
-  /*background: #fff;*/
 }
 
 .main_bg {
@@ -73,10 +72,11 @@ body {
   align-items: center;
   -webkit-align-items: center;
   text-align: center;
-  background: yellow;
+  background: #fff;
 }
 
-.result-children span {
+.result-children span,
+.result-children a {
   flex: 1;
   -webkit-box-flex: 1;
   -ms-flex: 1;
