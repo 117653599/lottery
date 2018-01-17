@@ -13,6 +13,7 @@ body {
 
 .btn {
   /* background:url(../img/btn.png) 0px 0px no-repeat; */
+  z-index: 1000;
   width: 350px;
   height: 80px;
   display: block;
@@ -41,7 +42,6 @@ body {
   height: 360px;
   margin: 70px auto;
   margin-bottom: 30px;
-  z-index: 1000;
   text-align: center;
   font-size: 65px;
   color: #000;

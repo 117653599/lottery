@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "server": "supervisor -w routes/ -i public/ bin/www",
     "watch": "node ./build/dev-server",
-    "build": "NODE_ENV=production node ./build/build"
+    "build": "node ./build/build"
   },
   "dependencies": {
     "body-parser": "~1.18.2",

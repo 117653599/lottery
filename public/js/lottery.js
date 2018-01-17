@@ -19,7 +19,7 @@ const Lottery = {
   _picHeight: 120,
   _running: false,
   _intervalId: null,
-  _intervalTime: null,
+  _intervalTimes: null,
   _currentUser: {},
   _numTime: 0,
   _Users: [],
@@ -27,10 +27,7 @@ const Lottery = {
   start: function (duration) {
     this._running = true
     $('.btn').html('停止')
-    // $('.result-parent').html('')
     let i = 0
-    // 图片高度
-    // const u = 265
     const fn = function () {
       $('.num').each(function (index) {
         const _num = $(this)
@@ -67,10 +64,10 @@ const Lottery = {
       index: rd,
       code: u[0],
       name: u[1],
-      nameEn: u[2],
-      sex: u[3],
-      city: u[4],
-      department: u[5]
+      // nameEn: u[2],
+      // sex: u[3],
+      // city: u[4],
+      department: u[2]
     }
   },
   stopToUser: function (user) {
@@ -88,10 +85,10 @@ const Lottery = {
         })
       }, 200)
     })
-    // setTimeout(function() {
-    //   const string = '<div class="result-children"><span>' + user.name + '(' + user.department + ')</span></div>'
-    //   $('.result-parent').append(string)
-    // }, 4300)
+    setTimeout(function () {
+      const string = '<div class="result-children"><span>' + user.name + '(' + user.department + ')</span></div>'
+      $('.result-parent').append(string)
+    }, 4300)
   },
   addUsers: function () {
     for (let i = 0; i < this._numTotal; i++) {
@@ -101,7 +98,7 @@ const Lottery = {
     }
   },
   writeHtml: function (user) {
-    const string = '<div class="result-children"><span>' + user.name + '(' + user.department + ')</span></div>'
+    const string = '<div class="result-children"><span>' + user.code + '(' + user.department + ')</span></div>'
     $('.result-parent').append(string)
   }
 }
@@ -114,7 +111,7 @@ $(function () {
     if (Lottery.isRunning()) {
       Lottery.addUsers()
       const fn = function () {
-        if (Lottery._numTime > Lottery._numTotal - 1) {
+        if (Lottery._numTime > Lottery._numTotal - 2) {
           return
         }
         const numTime = Lottery._numTime
@@ -123,15 +120,41 @@ $(function () {
         console.log('fn-numTime:' + numTime + ':' + user.name)
         Lottery._numTime = Lottery._numTime + 1
       }
-      Lottery._intervalTime = setInterval(fn, everyInter)
+      Lottery._intervalTimes = setInterval(fn, everyInter)
       setTimeout(() => {
-        clearInterval(Lottery._intervalTime)
+        clearInterval(Lottery._intervalTimes)
         Lottery.stop()
         Lottery.stopToUser(Lottery._currentUser)
       }, totalTime)
       return
     }
     Lottery.start(200)
+  })
+  $(document).keydown(function (ee) {
+    const e = ee || window.event
+    if (e.keyCode === 32) {
+      if (Lottery.isRunning()) {
+        Lottery.addUsers()
+        const fn = function () {
+          if (Lottery._numTime > Lottery._numTotal - 2) {
+            return
+          }
+          const numTime = Lottery._numTime
+          const user = Lottery._Users[numTime]
+          Lottery.writeHtml(user)
+          console.log('fn-numTime:' + numTime + ':' + user.name)
+          Lottery._numTime = Lottery._numTime + 1
+        }
+        Lottery._intervalTimes = setInterval(fn, everyInter)
+        setTimeout(() => {
+          clearInterval(Lottery._intervalTimes)
+          Lottery.stop()
+          Lottery.stopToUser(Lottery._currentUser)
+        }, totalTime)
+        return
+      }
+      Lottery.start(200)
+    }
   })
   // btn事件
   // $('.btn').click(function() {
@@ -145,17 +168,16 @@ $(function () {
   //   Lottery.start(200)
   // })
 
-  $(document).keydown(function (ee) {
-    const e = ee || window.event
-    if (e.keyCode === 32) {
-      if (Lottery.isRunning()) {
-        Lottery.stop()
-        const user = Lottery.randomUser(Users)
-        Lottery.stopToUser(user)
-        return
-      }
-      // var i = 0
-      Lottery.start(200)
-    }
-  })
+  // $(document).keydown(function (ee) {
+  //   const e = ee || window.event
+  //   if (e.keyCode === 32) {
+  //     if (Lottery.isRunning()) {
+  //       Lottery.stop()
+  //       const user = Lottery.randomUser(Users)
+  //       Lottery.stopToUser(user)
+  //       return
+  //     }
+  //     Lottery.start(200)
+  //   }
+  // })
 })
