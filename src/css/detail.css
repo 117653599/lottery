@@ -1,3 +1,15 @@
-.dowebok { width: 100%; height: 400px; margin: 50px auto; font-size: 40px;}
-.dowebok ul { margin: 0; line-height: 50px;}
-.dowebok li { list-style: none }
+.dowebok {
+  width: 100%;
+  height: 400px;
+  margin: 50px auto;
+  font-size: 40px;
+}
+
+.dowebok ul {
+  margin: 0;
+  line-height: 50px;
+}
+
+.dowebok li {
+  list-style: none;
+}

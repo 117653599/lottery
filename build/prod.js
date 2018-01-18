@@ -116,12 +116,12 @@ const updateHtml = (file, isRelease) => {
 };
 
 const minify = file => {
-  console.log(chalk.cyan(`process file: ${file}`));
+  console.log(chalk.cyan(`process js file: ${file}`));
   return resourceBanner() + uglify.minify(file).code;
 };
 
 const minifyCss = file => {
-  console.log(chalk.cyan(`process file: ${file}`));
+  console.log(chalk.cyan(`process css file: ${file}`));
   return resourceBanner() + csso.minify(fs.readFileSync(file, 'utf8'));
 };
 

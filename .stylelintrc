@@ -1,6 +1,6 @@
 {
   "extends": "stylelint-config-standard",
-  "ignoreFiles": ["node_modules/**/*.css"],
+  "ignoreFiles": ["node_modules/**/*.css", "src/lib/*.css"],
   "rules": {
   }
 }

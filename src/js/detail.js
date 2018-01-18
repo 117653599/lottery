@@ -1,4 +1,4 @@
-require('../css/liMarquee.css')
+require('../lib/liMarquee.css')
 require('../css/detail.css')
 const $ = require('jquery')
 require('../../src/lib/jquery.liMarquee')
