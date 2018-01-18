@@ -11,11 +11,11 @@ const joinBaseRoot = file => path.join(baseRoot, file);
 
 const webpackConfig = {
   entry: {
-    app: joinBaseRoot('public/js/app.js')
+    app: joinBaseRoot('src/js/app.js')
   },
   output: {
     publicPath: publicPath,
-    path: joinBaseRoot('public/assets/'),
+    path: joinBaseRoot('src/assets/'),
     filename: '[name].js',
     chunkFilename: '[id].js'
   },
@@ -48,7 +48,7 @@ const webpackConfig = {
       {
         test: /\.js$/,
         loader: 'eslint-loader',
-        exclude: [/node_modules/, joinBaseRoot('public/lib')],
+        exclude: [/node_modules/, joinBaseRoot('src/lib')],
         options: {
           formatter: require('eslint-friendly-formatter')
         }

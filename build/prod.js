@@ -16,9 +16,9 @@ const searchRe = /<%= __public_path__ %>([^"]+)/g;
 const hashedRe = /(\w+)(-\w{32})?(\.\w+[^"])/;
 const imageFileRe = /png|svg|gif|jpg|jpe?g|icon?/;
 
-const stylesDir = path.join(baseRoot, 'public/css');
-const imgDir = path.join(baseRoot, 'public/img');
-const assetsDir = path.join(baseRoot, 'public/assets');
+const stylesDir = path.join(baseRoot, 'src/css');
+const imgDir = path.join(baseRoot, 'src/img');
+const assetsDir = path.join(baseRoot, 'src/assets');
 const viewsDir = path.join(baseRoot, 'views');
 
 const fileMap = {};

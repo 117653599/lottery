@@ -29,5 +29,5 @@ bs.init({
     port: 9000
   },
   proxy: 'http://localhost:9000',
-  files: ['public/assets/*.js', 'public/assets/*.css', 'views/*.html']
+  files: ['src/assets/*.js', 'src/assets/*.css', 'views/*.html']
 });
