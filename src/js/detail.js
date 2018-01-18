@@ -1,11 +1,15 @@
-require('../css/toast.css')
+require('../css/liMarquee.css')
+require('../css/detail.css')
 const $ = require('jquery')
-const Toast = require('../lib/toast')
-const _toast = new Toast()
+require('../../src/lib/jquery.liMarquee')
 module.exports = function () {
-  // console.log('detail')
+  $(function () {
+    $('.dowebok').liMarquee({
+      direction: 'up'
+    })
+  })
   $('#app').on('click', function () {
-    _toast.show('11111')
+    // _toast.show('11111')
     console.log(1)
   })
 }

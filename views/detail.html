@@ -6,7 +6,25 @@
   <link rel="stylesheet" href="<%= __public_path__ %>app.css">
 </head>
 <body>
-  <div id="app">1111111111</div>
+  <div class="detail">
+    <div class="btn">开始</div>
+    <div class="main_bg">
+      <div class="dowebok">
+        <ul>
+          <% for (var i = 0; i < data.length; i++) { %>
+            <li>
+              <span>工号:<%= data[i][0] %></span>
+              <span>姓名:<%= data[i][1] %></span>
+              <span>部门:<%= data[i][2] %></span>
+              <% if (data[i][3]) { %>
+                <span>奖项:<%= data[i][3] %>等奖</span>
+              <% } %>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
   <script src="<%= __public_path__ %>app.js"></script>
 </body>
 </html>

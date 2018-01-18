@@ -2,6 +2,7 @@ const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const autoprefixer = require('autoprefixer');
 const stylelint = require('stylelint');
+const webpack = require('webpack')
 
 const config = require('./config');
 const baseRoot = config.baseRoot;
@@ -56,7 +57,12 @@ const webpackConfig = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('[name].css'),
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery"
+    })
   ]
 };
 

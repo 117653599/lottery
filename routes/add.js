@@ -17,9 +17,9 @@ module.exports = (req, res) => {
     data.push(m)
     fs.writeFile(__dirname + '/../datas/list.json', JSON.stringify(data), 'utf-8', (err) => {
       if (!err) {
-        res.send('读取成功')
+        res.send('写入成功')
       } else {
-        res.send('重复数据不存储')
+        res.send('存储不成功')
       }
     })
   } else {

@@ -1,0 +1,37 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  background: url(../img/bg.jpg) no-repeat fixed top;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+}
+
+.btn {
+  /* background:url(../img/btn.png) 0px 0px no-repeat; */
+  z-index: 1000;
+  width: 350px;
+  height: 80px;
+  display: block;
+  margin: 50px auto;
+  cursor: pointer;
+  text-align: center;
+  font-size: 50px;
+  color: #e00d1e;
+  padding-top: 10px;
+  padding-left: 40px;
+}
+
+.main_bg {
+  height: 560px;
+  width: 1130px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -565px;
+}
