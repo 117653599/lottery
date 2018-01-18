@@ -98,6 +98,9 @@ const Lottery = {
     }
   },
   writeHtml: function (user) {
+    if ($('.result-parent').html().match('开始抽奖')) {
+      $('.result-parent').html('')
+    }
     const string = '<div class="result-children"><span>' + user.code + '(' + user.department + ')</span></div>'
     $('.result-parent').append(string)
   }
@@ -114,6 +117,8 @@ module.exports = function () {
     const totalTime = Lottery._numTotal * 500
     $('.btn').click(function () {
       if (Lottery.isRunning()) {
+        $('.btn').html('中奖者产生中...')
+        // 按钮打灰
         Lottery.addUsers()
         const fn = function () {
           if (Lottery._numTime > Lottery._numTotal - 2) {
@@ -139,6 +144,7 @@ module.exports = function () {
       const e = ee || window.event
       if (e.keyCode === 32) {
         if (Lottery.isRunning()) {
+          $('.btn').html('中奖者产生中...')
           Lottery.addUsers()
           const fn = function () {
             if (Lottery._numTime > Lottery._numTotal - 2) {

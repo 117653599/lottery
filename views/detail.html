@@ -7,8 +7,9 @@
 </head>
 <body>
   <div class="detail">
-    <div class="btn">开始</div>
-    <div class="main_bg">
+    <div class="logo"></div>
+    <div class="btn btn-cursor">中奖名单</div>
+    <div class="detail_bg">
       <div class="dowebok">
         <ul>
           <% for (var i = 0; i < data.length; i++) { %>
@@ -23,6 +24,7 @@
           <% } %>
         </ul>
       </div>
+      <button>导出中奖名单</button>&nbsp;<button>&nbsp;&nbsp;打&nbsp;&nbsp;印&nbsp;&nbsp;</button>
     </div>
   </div>
   <script src="<%= __public_path__ %>app.js"></script>

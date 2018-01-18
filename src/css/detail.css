@@ -1,6 +1,20 @@
+.btn-cursor {
+  cursor: default;
+}
+.detail_bg {
+  background:url(../img/list_bg.png) center 40px no-repeat;
+  background-size: 1130px 400px;
+  height: 560px;
+  width: 1130px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -565px;
+}
 .dowebok {
   width: 100%;
-  height: 400px;
+  height: 380px;
   margin: 50px auto;
   font-size: 40px;
 }

@@ -1,12 +1,13 @@
 require('../css/app.css')
 const $ = require('jquery')
-require('promise')
+// require('promise')
 
 module.exports = function () {
   $('#list').on('click', () => {
-    $.get('/list?' + Math.random() * 1000, result => {
-      console.log(result)
-    })
+    // $.get('/list?' + Math.random() * 1000, result => {
+    //   console.log(result)
+    // })
+    window.open('/detail')
   })
   $('#load').on('click', () => {
     $.get('/load?' + Math.random() * 1000, result => {

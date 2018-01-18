@@ -12,12 +12,8 @@ const compiler = webpack(webpackConfig);
 compiler.watch({
   aggregateTimeout: 300
 }, (err, stats) => {
-  if (err) {
-    console.log(chalk.red(err))
-  } else {
-    console.log(chalk.green('[webpack]: build done!'));
-  }
-  console.log('\n', stats.toString());
+  console.log(err ? err : '[webpack]: build done!');
+  console.log(stats.toString());
 });
 
 // Rewrite views to development mode
