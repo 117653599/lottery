@@ -3,7 +3,8 @@ const $ = require('jquery')
 
 const modules = {
   home: require('./home'),
-  lottery: require('./lottery')
+  lottery: require('./lottery'),
+  detail: require('./detail')
 }
 
 const matchModule = pathname => {

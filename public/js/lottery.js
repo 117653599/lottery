@@ -106,7 +106,7 @@ module.exports = function () {
   console.log(window.innerHeight)
   $(function () {
     $('.lottery').css({
-      height: window.height
+      height: window.innerHeight
     })
     // 从配置文件获取
     Lottery._numTotal = 25

@@ -48,7 +48,7 @@ const webpackConfig = {
       {
         test: /\.js$/,
         loader: 'eslint-loader',
-        exclude: [/node_modules/, /lib/],
+        exclude: [/node_modules/, joinBaseRoot('public/lib')],
         options: {
           formatter: require('eslint-friendly-formatter')
         }
