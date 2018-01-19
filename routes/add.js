@@ -36,6 +36,7 @@ const readInFile = fpath => {
 // 将中奖名单写入文件
 module.exports = (req, res) => {
   readInFile(listPath).then(fpath => {
+    console.log(fpath)
     const data = require(fpath)
     const len = data.length
     let flag = 0

@@ -2,10 +2,8 @@ require('../css/app.css')
 const $ = require('jquery')
 
 module.exports = function () {
+  // 查看中奖名单
   $('#list').on('click', () => {
-    // $.get('/list?' + Math.random() * 1000, result => {
-    //   console.log(result)
-    // })
     window.open('/detail')
   })
   // 导入数据
@@ -23,11 +21,20 @@ module.exports = function () {
 
   // 数据存储有问题
   const n = {
-    data: JSON.stringify([12239, 'hqlin12239', 'wmd12239', 1])
+    data: JSON.stringify([12339, 'hqlin12339', 'wmd12339', 1])
   }
-
   $('#add').on('click', () => {
     $.post('/add', n, result => {
+      if (result) {
+        console.log(result)
+      } else {
+        console.log(result)
+      }
+    })
+  })
+  // console.log(testData)
+  $('#delete').on('click', () => {
+    $.post('/delete', n, result => {
       if (result) {
         console.log(result)
       } else {

@@ -6,6 +6,7 @@ const detail = require('./detail')
 const list = require('./list')
 const load = require('./load')
 const add = require('./add')
+const del = require('./delete')
 
 exports.init = app => {
   // 页面
@@ -16,5 +17,6 @@ exports.init = app => {
   app.get('/list', list)
   app.get('/load', load)
   app.post('/add', add)
+  app.post('/delete', del)
   return app
 }
