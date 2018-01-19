@@ -8,7 +8,7 @@ const load = require('./load')
 const add = require('./add')
 
 exports.init = app => {
-
+  // 页面
   app.get('/', home)
   app.get('/lottery', lottery)
   app.get('/detail', detail)

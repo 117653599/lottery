@@ -1,6 +1,5 @@
 require('../css/app.css')
 const $ = require('jquery')
-// require('promise')
 
 module.exports = function () {
   $('#list').on('click', () => {
@@ -9,12 +8,15 @@ module.exports = function () {
     // })
     window.open('/detail')
   })
+  // 导入数据
   $('#load').on('click', () => {
     $.get('/load?' + Math.random() * 1000, result => {
       if (result) {
         console.log(result)
+        alert('导入成功')
       } else {
         console.log(result)
+        alert('导入失败，请检查excel文件格式')
       }
     })
   })
