@@ -20,7 +20,8 @@ module.exports = function () {
   })
   // 测试添加删除功能的假数据
   const n = {
-    data: JSON.stringify([12349, 'hqlin12439', 'wmd12339', 2])
+    data: JSON.stringify([15349, 'hqlin15439', 'wmd15339', 2]),
+    type: 9
   }
   $('#add').on('click', () => {
     $.post('/add', n, result => {
