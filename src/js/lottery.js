@@ -39,15 +39,27 @@ const Lottery = {
     }
     const reIndex = Math.floor(Math.random() * users.length)
     // 取出的值正确保存到list里面，并且返回成功结果,那就把值存到当前的_Users里面
-    const u = users[reIndex]
-    this._currentUser = u
-    this._Users.push(u)
-    const user = {
-      code: u[0],
-      name: u[1],
-      department: u[2]
+    users[reIndex].push(0)
+    const n = {
+      data: JSON.stringify(users[reIndex]),
+      type: 0
     }
-    Lottery.writeHtml(user)
+    console.log('当前用户：', JSON.stringify(users[reIndex]))
+    $.post('/add', n, result => {
+      if (!result.code) {
+        const u = users[reIndex]
+        this._currentUser = u
+        this._Users.push(u)
+        const user = {
+          code: u[0],
+          name: u[1],
+          department: u[2]
+        }
+        Lottery.writeHtml(user)
+      } else {
+        console.log(result.text)
+      }
+    })
   },
   writeHtml: function (user) {
     if ($('.result-parent').html().match('抽奖')) {
@@ -80,16 +92,12 @@ module.exports = function () {
   }
   $.get('/list?v=' + Math.random() * 100000, result => {
     if (result) {
-      console.log(result)
       $('.btn').click(function () {
         if (Lottery._running) {
-          console.log(1)
           Lottery.stop(result.data)
           setTimeout(() => {
             clearInterval(Lottery._intervalTimes)
             Lottery.stopScroll()
-            console.log('停了...')
-            console.log(Lottery._Users)
             // 恢复初始化状态
             Lottery.restart()
           }, Lottery._totalNum * 500)
