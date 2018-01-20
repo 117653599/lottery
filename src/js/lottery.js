@@ -73,8 +73,11 @@ module.exports = function () {
   // $(function () {
   // 页面初始化,通过接口获取参数
   Lottery._totalNum = 5
-  Lottery._totalTimes = 2
+  Lottery._totalTimes = 0
   $('.time').html(Lottery._totalTimes)
+  if (!Lottery._totalTimes) {
+    return
+  }
   $.get('/list?v=' + Math.random() * 100000, result => {
     if (result) {
       console.log(result)
