@@ -21,7 +21,7 @@ module.exports = function () {
 
   // 数据存储有问题
   const n = {
-    data: JSON.stringify([12339, 'hqlin12339', 'wmd12339', 1])
+    data: JSON.stringify([12349, 'hqlin12439', 'wmd12339', 2])
   }
   $('#add').on('click', () => {
     $.post('/add', n, result => {

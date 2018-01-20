@@ -6,3 +6,5 @@
 .svn/
 node_modules/
 src/assets/
+src/js/lottery.bak.js
+routes/detail.bak.js
