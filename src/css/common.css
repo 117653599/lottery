@@ -35,6 +35,11 @@ body {
   font-size: 50px;
   color: #e00d1e;
   padding-top: 10px;
+  border: 0
+}
+
+input[type="button"] {
+  outline: none;
 }
 
 .main_bg {
