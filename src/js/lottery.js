@@ -66,15 +66,15 @@ const Lottery = {
       $('.btn').attr('disabled', 'true')
     }
     console.log(Lottery._totalTimes)
-    $('.time').html(Lottery._totalTimes)
+    $('#total-times').html(Lottery._totalTimes)
   }
 }
 module.exports = function () {
   // $(function () {
   // 页面初始化,通过接口获取参数
-  Lottery._totalNum = 5
-  Lottery._totalTimes = 0
-  $('.time').html(Lottery._totalTimes)
+  Lottery._totalNum = $('#total-num').html()
+  Lottery._totalTimes = $('#total-times').html()
+  // $('#total-times').html(Lottery._totalTimes)
   if (!Lottery._totalTimes) {
     return
   }

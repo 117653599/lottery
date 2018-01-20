@@ -18,8 +18,7 @@ module.exports = function () {
       }
     })
   })
-
-  // 数据存储有问题
+  // 测试添加删除功能的假数据
   const n = {
     data: JSON.stringify([12349, 'hqlin12439', 'wmd12339', 2])
   }
@@ -52,21 +51,24 @@ module.exports = function () {
       }
     })
   }
+  // $('#add-one').on('click', () => {
+  //   checkadd().then(res => {
+  //     console.log(res)
+  //     const data = require('../../datas/test.json')
+  //     if (data.length < 2) {
+  //       window.open('/lottery')
+  //     } else {
+  //       console.log('该部分奖项已经抽完')
+  //       $('#add-one').off('click').css({
+  //         color: 'grey'
+  //       })
+  //     }
+  //   }).catch(err => {
+  //     alert(err)
+  //   })
+  // })
   $('#add-one').on('click', () => {
-    checkadd().then(res => {
-      console.log(res)
-      const data = require('../../datas/test.json')
-      if (data.length < 2) {
-        window.open('/lottery')
-      } else {
-        console.log('该部分奖项已经抽完')
-        $('#add-one').off('click').css({
-          color: 'grey'
-        })
-      }
-    }).catch(err => {
-      alert(err)
-    })
+    window.open('/lottery?type=0')
   })
   $('#add-two').on('click', () => {
     checkadd().then(res => {
