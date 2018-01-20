@@ -10,3 +10,47 @@ exports.baseRoot = baseRoot
 exports.xlsxDir = joinBaseRoot('datas/all.xlsx')
 exports.allDir = joinBaseRoot('datas/all.txt')
 exports.listDir = joinBaseRoot('datas/list.txt')
+exports.settings = {
+  t0: {
+    type: 0,
+    name: '特等奖',
+    len: 10,
+    tottalNum: 5
+  },
+  t1: {
+    type: 1,
+    name: '一等奖',
+    len: 15,
+    tottalNum: 5
+  },
+  t2: {
+    type: 2,
+    name: '二等奖',
+    len: 40,
+    tottalNum: 10
+  },
+  t3: {
+    type: 3,
+    name: '三等奖',
+    len: 80,
+    tottalNum: 20
+  },
+  t4: {
+    type: 4,
+    name: '四等奖',
+    len: 150,
+    tottalNum: 25
+  },
+  t5: {
+    type: 5,
+    name: '五等奖',
+    len: 300,
+    tottalNum: 25
+  },
+  t6: {
+    type: 6,
+    name: '六等奖',
+    len: 500,
+    tottalNum: 25
+  }
+}

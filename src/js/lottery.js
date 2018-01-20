@@ -3,6 +3,7 @@ const $ = require('jquery')
 require('jquery.easing')
 
 const Lottery = {
+  _type: -1,
   _running: false,
   _intervalScroll: null,
   _intervalTimes: null,
@@ -39,10 +40,9 @@ const Lottery = {
     }
     const reIndex = Math.floor(Math.random() * users.length)
     // 取出的值正确保存到list里面，并且返回成功结果,那就把值存到当前的_Users里面
-    users[reIndex].push(0)
+    users[reIndex].push(JSON.parse(this._type))
     const n = {
-      data: JSON.stringify(users[reIndex]),
-      type: 0
+      data: JSON.stringify(users[reIndex])
     }
     console.log('当前用户：', JSON.stringify(users[reIndex]))
     $.post('/add', n, result => {
@@ -82,10 +82,15 @@ const Lottery = {
   }
 }
 module.exports = function () {
-  // $(function () {
   // 页面初始化,通过接口获取参数
   Lottery._totalNum = $('#total-num').html()
   Lottery._totalTimes = $('#total-times').html()
+  Lottery._type = $('#total-type').html()
+  if (Lottery._type === -1) {
+    alert('没有选择奖项类型')
+    window.close()
+    return
+  }
   // $('#total-times').html(Lottery._totalTimes)
   if (!Lottery._totalTimes) {
     return
