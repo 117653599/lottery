@@ -3,7 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const config = require('../build/config')
-const allPath = path.join(config.baseRoot, 'datas/list.json')
+const allPath = config.allDir
 
 module.exports = (req, res) => {
   const reqdata = JSON.parse(req.body.data)

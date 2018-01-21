@@ -43,7 +43,7 @@ module.exports = function () {
   })
   const checkadd = () => {
     return new Promise((resolve, reject) => {
-      const data = require('../../datas/all.json')
+      const data = []
       if (data.length) {
         resolve('all.json数据正常')
       } else {

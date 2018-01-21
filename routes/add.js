@@ -3,12 +3,12 @@
 const fs = require('fs')
 const path = require('path')
 const config = require('../build/config')
-const { getInfo } = require('./tools')
+const { getList } = require('./tools')
 
 // 将中奖名单写入文件
 module.exports = (req, res) => {
   const listPath = config.listDir
-  getInfo(listPath).then(result => {
+  getList(listPath).then(result => {
     const data = result
     const reqData = JSON.parse(req.body.data)
     let flag = 0

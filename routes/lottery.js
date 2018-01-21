@@ -2,7 +2,8 @@
 
 const path = require('path')
 const config = require('../build/config')
-const { getInfo } = require('./tools') 
+const { getList } = require('./tools')
+const { hasTypeList } = require('./tools') 
 const settings = config.settings
 const baseRoot = config.baseRoot
 const joinBaseRoot = file => path.join(baseRoot, 'datas', file)
@@ -16,58 +17,62 @@ const renderList = (typelist, len) => {
   list.totalTimes = Math.floor((typelist.len - len) / typelist.totalNum)
   return list
 }
+const renderFun = (sourthPath, type) => {
+  return new Promise((resolve, reject) => {
+    getList(sourthPath).then(data => {
+      const dataList = hasTypeList(data, type)
+      const list_type = renderList(settings['t' + type], dataList.length)
+      resolve(list_type)
+    }).catch(err => {
+      reject(err)
+    })
+  });
+}
 
 module.exports = (req, res) => {
+  const sourthPath = joinBaseRoot('list.txt')
   console.log(req.query.type)
   const type = JSON.parse(req.query.type)
   switch (type) {
     case 0: {
-      getInfo(joinBaseRoot('list_0.txt')).then(data => {
-        const list_0 = renderList(settings.t0, data.length)
-        res.render('lottery', list_0)
+      renderFun(sourthPath, 0).then(list_type => {
+        res.render('lottery', list_type)
       })
       return
     }
     case 1: {
-      getInfo(joinBaseRoot('list_1.txt')).then(data => {
-        const list_1 = renderList(settings.t1, data.length)
-        res.render('lottery', list_1)
+      renderFun(sourthPath, 1).then(list_type => {
+        res.render('lottery', list_type)
       })
       return
     }
     case 2: {
-      getInfo(joinBaseRoot('list_2.txt')).then(data => {
-        const list_2 = renderList(settings.t2, data.length)
-        res.render('lottery', list_2)
+      renderFun(sourthPath, 2).then(list_type => {
+        res.render('lottery', list_type)
       })
       return
     }
     case 3: {
-      getInfo(joinBaseRoot('list_3.txt')).then(data => {
-        const list_3 = renderList(settings.t3, data.length)
-        res.render('lottery', list_3)
+      renderFun(sourthPath, 3).then(list_type => {
+        res.render('lottery', list_type)
       })
       return
     }
     case 4: {
-      getInfo(joinBaseRoot('list_4.txt')).then(data => {
-        const num = Math.floor((150 - data.length) / 25)
-        const list_4 = renderList(settings.t4, data.length)
-        res.render('lottery', list_4)
+      renderFun(sourthPath, 4).then(list_type => {
+        res.render('lottery', list_type)
       })
       return
     }
     case 5: {
-      getInfo(joinBaseRoot('list_5.txt')).then(data => {
-        const list_5 = renderList(settings.t5, data.length)
-        res.render('lottery', list_5)
+      renderFun(sourthPath, 5).then(list_type => {
+        res.render('lottery', list_type)
       })
       return
     }
     case 6: {
-      getInfo(joinBaseRoot('list_6.txt')).then(data => {
-        const list_6 = renderList(settings.t6, data.length)
-        res.render('lottery', list_6)
+      renderFun(sourthPath, 6).then(list_type => {
+        res.render('lottery', list_type)
       })
       return
     }

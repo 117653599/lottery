@@ -3,7 +3,8 @@
 const fs = require('fs')
 const chalk = require('chalk')
 
-exports.getInfo = sourcePath => {
+// 获取文件信息，当文件不存在时则创建
+exports.getList = sourcePath => {
   return new Promise((resolve, reject) => {
     fs.readFile(sourcePath, (err, data) => {
       // 判断文件是否存在
@@ -26,4 +27,15 @@ exports.getInfo = sourcePath => {
       }
     })
   });
+}
+exports.hasTypeList = (data, type) => {
+  let j = 0
+  const arrayList = []
+  for (let i = 0; i < data.length; i++) {
+    if (data[i][3] === type) {
+      arrayList.push(data[i])
+      j = j + 1
+    }
+  }
+  return arrayList
 }
