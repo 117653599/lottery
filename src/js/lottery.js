@@ -77,7 +77,6 @@ const Lottery = {
     if (Lottery._totalTimes === 0) {
       $('.btn').attr('disabled', 'true')
     }
-    console.log(Lottery._totalTimes)
     $('#total-times').html(Lottery._totalTimes)
   }
 }
@@ -86,17 +85,20 @@ module.exports = function () {
   Lottery._totalNum = $('#total-num').html()
   Lottery._totalTimes = $('#total-times').html()
   Lottery._type = $('#total-type').html()
+  // 没有选择抽奖类型
   if (Lottery._type === -1) {
     alert('没有选择奖项类型')
     window.close()
     return
   }
-  // $('#total-times').html(Lottery._totalTimes)
-  if (!Lottery._totalTimes) {
+  // 没有所有奖项已经抽完
+  if (JSON.parse(Lottery._totalTimes) === 0) {
+    alert('所有奖项已经抽完')
     return
   }
-  $.get('/list?v=' + Math.random() * 100000, result => {
-    if (result) {
+  $.get('/userslist?v=' + Math.random() * 100000, result => {
+    console.log(result.data.length)
+    if (result.data.length) {
       $('.btn').click(function () {
         if (Lottery._running) {
           Lottery.stop(result.data)
@@ -112,6 +114,7 @@ module.exports = function () {
         Lottery.start(200)
       })
     } else {
+      alert('数据已经抽完')
       console.log('数据请求不成功')
     }
   })

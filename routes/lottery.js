@@ -1,22 +1,11 @@
 'use strict'
 
-const path = require('path')
 const config = require('../build/config')
 const { getList } = require('./tools')
 const { hasTypeList } = require('./tools') 
+const { renderList } = require('./tools') 
 const settings = config.settings
-const baseRoot = config.baseRoot
-const joinBaseRoot = file => path.join(baseRoot, 'datas', file)
-// 计算奖项当前剩余情况
-const renderList = (typelist, len) => {
-  const list = {}
-  list.name = typelist.name
-  list.type = typelist.type
-  list.len = typelist.len
-  list.totalNum = typelist.totalNum
-  list.totalTimes = Math.floor((typelist.len - len) / typelist.totalNum)
-  return list
-}
+
 const renderFun = (sourthPath, type) => {
   return new Promise((resolve, reject) => {
     getList(sourthPath).then(data => {
@@ -30,7 +19,7 @@ const renderFun = (sourthPath, type) => {
 }
 
 module.exports = (req, res) => {
-  const sourthPath = joinBaseRoot('list.txt')
+  const sourthPath = config.listDir
   console.log(req.query.type)
   const type = JSON.parse(req.query.type)
   switch (type) {

@@ -2,6 +2,10 @@ require('../css/app.css')
 const $ = require('jquery')
 
 module.exports = function () {
+  // 测试添加删除功能的假数据
+  const n = {
+    data: JSON.stringify(['015347', 'hqlin15439', 'wmd15339', 3])
+  }
   // 查看中奖名单
   $('#list').on('click', () => {
     window.open('/detail')
@@ -18,10 +22,7 @@ module.exports = function () {
       }
     })
   })
-  // 测试添加删除功能的假数据
-  const n = {
-    data: JSON.stringify(['015347', 'hqlin15439', 'wmd15339', 3])
-  }
+  // 测试添加数据
   $('#add').on('click', () => {
     $.post('/add', n, result => {
       if (result) {
@@ -31,7 +32,7 @@ module.exports = function () {
       }
     })
   })
-  // console.log(testData)
+  // 测试删除数据
   $('#delete').on('click', () => {
     $.post('/delete', n, result => {
       if (result) {
@@ -41,40 +42,12 @@ module.exports = function () {
       }
     })
   })
-  const checkadd = () => {
-    return new Promise((resolve, reject) => {
-      const data = []
-      if (data.length) {
-        resolve('all.json数据正常')
-      } else {
-        reject = '请先导入数据'
-      }
-    })
-  }
-  // $('#add-one').on('click', () => {
-  //   checkadd().then(res => {
-  //     console.log(res)
-  //     const data = require('../../datas/test.json')
-  //     if (data.length < 2) {
-  //       window.open('/lottery')
-  //     } else {
-  //       console.log('该部分奖项已经抽完')
-  //       $('#add-one').off('click').css({
-  //         color: 'grey'
-  //       })
-  //     }
-  //   }).catch(err => {
-  //     alert(err)
-  //   })
-  // })
-  $('#add-one').on('click', () => {
-    window.open('/lottery?type=0')
-  })
-  $('#add-two').on('click', () => {
-    checkadd().then(res => {
-      console.log(res + ':打开二等奖抽奖')
-    }).catch(err => {
-      alert(err)
+  // 不同按钮进入不同的抽奖界面
+  $('#btns button').each((index, e) => {
+    const _this = $(e)
+    const url = '/lottery?type=' + index
+    $(_this).on('click', () => {
+      window.open(url)
     })
   })
 }

@@ -3,7 +3,10 @@
 const fs = require('fs')
 const chalk = require('chalk')
 
-// 获取文件信息，当文件不存在时则创建
+/*
+ *根据路径名字获取文件信息，
+ *当文件不存在时则创建
+ */
 exports.getList = sourcePath => {
   return new Promise((resolve, reject) => {
     fs.readFile(sourcePath, (err, data) => {
@@ -28,6 +31,9 @@ exports.getList = sourcePath => {
     })
   });
 }
+/*
+ * 从已中奖列表查找奖项=type的所有列表并返回
+ */
 exports.hasTypeList = (data, type) => {
   let j = 0
   const arrayList = []
@@ -38,4 +44,21 @@ exports.hasTypeList = (data, type) => {
     }
   }
   return arrayList
+}
+/*
+ * 计算奖项当前剩余情况
+ */
+exports.renderList = (typelist, len) => {
+  const list = {}
+  list.name = typelist.name
+  list.type = typelist.type
+  list.len = typelist.len
+  list.totalNum = typelist.totalNum
+  if (typelist.len - len < 1) {
+    list.totalTimes = 0
+  } else {
+    list.totalTimes = Math.floor((typelist.len - len) / typelist.totalNum)
+  }
+    
+  return list
 }

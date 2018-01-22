@@ -1,3 +1,6 @@
+/*
+ * 获取参加抽奖的用户信息列表
+ */
 'use strict'
 
 const config = require('../build/config')

@@ -10,41 +10,21 @@
     <div class="logo"></div>
     <div class="btn btn-cursor">后台操作</div>
     <div class="main_bg">
-      <div class="result">
-        <div class="result-parent">
-          <div class="result-children">
-            <span href="javascript:;" id="add-one">开始抽奖1等奖</span>
-          </div>
-          <div class="result-children">
-            <span href="javascript:;" id="add-two">开始抽奖2等奖</span>
-          </div>
-          <div class="result-children">
-            <span href="javascript:;" id="add-three">开始抽奖3等奖</span>
-          </div>
-          <div class="result-children">
-            <span href="javascript:;" id="add-four">开始抽奖4等奖</span>
-          </div>
-          <div class="result-children">
-            <span href="javascript:;" id="add-five">开始抽奖5等奖</span>
-          </div>
-          <div class="result-children">
-            <span href="javascript:;" id="add-six">开始抽奖6等奖</span>
-          </div>
-          <div class="result-children">
-            <span href="javascript:;" id="add-special">开始抽奖特等奖</span>
-          </div>
-          <div class="result-children">
-            <span id="load" href="javascript:;">导入员工数据</span>
-          </div>
-          <div class="result-children">
-            <span id="list" href="javascript:;">查看中奖名单</span>
-          </div>
-          <div class="result-children">
-            <span id="add" href="javascript:;">添加中奖名单测试</span>
-          </div>
-          <div class="result-children">
-            <span id="delete" href="javascript:;">删除中奖名单测试</span>
-          </div>
+      <div class="result" style="display: block;">
+        <div class="btns" id="btns">
+          <% for(var i = 0;i < list.length;i++){ %>
+            <button class="btn-children" style="" id="add_<%= i %>"
+              <%= list[i].style %>>
+              <%= list[i].name %>
+            </button>
+          <% } %>
+        </div>
+        <div class="btns">
+          <button id="list" class="btn-children-2">查看中奖列表</button>
+          <button id="load" class="btn-children-2">导入数据</button>
+          <button id="add" class="btn-children-2">增加一条数据测试</button>
+          <button id="delete" class="btn-children-2">删除一条数据测试</button>
+
         </div>
       </div>
     </div>

@@ -10,9 +10,12 @@ const allPath = config.allDir
 const { getList } = require('./tools')
   
 module.exports = (req, res) => {
-  const data = (xlsx.parse(xmlPath))
+  // 导入数据文件，all.xlsx文件格式固定
+  // 没有做判断没有文件的情况
+  const data = xlsx.parse(xmlPath)
+  console.log(data)
   getList(allPath).then(result => {
-    fs.writeFile(allPath, data, 'utf-8', err => {
+    fs.writeFile(allPath, JSON.stringify(data[0].data), 'utf-8', err => {
       if (err) {
         res.send(false)
       } else {
