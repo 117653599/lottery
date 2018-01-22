@@ -1,17 +1,21 @@
+.detail_body {
+  background: url(../img/list_bg.png) no-repeat fixed top;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  background-color: #fbf8ec;
+}
+
 .btn-cursor {
   cursor: default;
 }
 
 .detail_bg {
-  background: url(../img/list_bg.png) center 40px no-repeat;
-  background-size: 1130px 400px;
-  height: 560px;
-  width: 1130px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -250px;
-  margin-left: -565px;
+  width: 1126px;
+  height: 907px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  display: block;
+  overflow: hidden;
 }
 
 .dowebok {
@@ -28,4 +32,7 @@
 
 .dowebok li {
   list-style: none;
+  min-height: 30px;
+  display: block;
+  height: auto;
 }
