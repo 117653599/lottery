@@ -42,14 +42,16 @@
   min-height: 30px;
   display: block;
   height: auto;
-  color: rgb(51, 31, 250);
+  color: #331f96;
 }
+
 .dowebok .title {
   width: 100%;
   font-size: 36px;
   padding: 20px 0 10px;
-  display: block
+  display: block;
 }
+
 .dowebok .content {
   font-size: 24px;
   width: 25%;

@@ -7,39 +7,35 @@
 </head>
 <body>
   <div class="logo"></div>
-  <div style="display: none;">剩余次数:<span id="total-times"><%= totalTimes %></span>/每次:<span id="total-num"><%= totalNum %></span>/type:<span id="total-type"><%= type %></span></div>
-  <div class="title-top"><%= name %>抽奖环节</div>
-  <div class="lottery-bg">
-    <div class="result">
-      <div class="result-parent">
-        <div class="result-children"><span>张三（研发部）</span></div>
-        <div class="result-children"><span>张三（研发部）</span></div>
-        <div class="result-children"><span>张三（研发部）</span></div>
-        <div class="result-children"><span>张三（研发部）</span></div>
-        <div class="result-children"><span>张三（研发部）</span></div>
-        <div class="result-children"><span>张三（研发部）</span></div>
+  <div class="lottery">
+    <div style="display: none;">剩余次数:<span id="total-times"><%= totalTimes %></span>/每次:<span id="total-num"><%= totalNum %></span>/type:<span id="total-type"><%= type %></span>
+    </div>
+    <div class="logo"></div>
+    <div class="title-top"><%= name %>抽奖环节</div>
+    <div class="lottery-bg">
+      <div class="result">
+        <div class="result-parent">
+            <div class="num_bg_box">
+              <div class="num_bg"></div>
+              <div class="num_bg"></div>
+              <div class="num_bg"></div>
+              <div class="num_bg"></div>
+              <div class="num_bg"></div>
+              <div class="num_bg"></div>
+              <div class="num_bg"></div>
+            </div>
+            <div class="num_box">
+              <div class="num"></div>
+              <div class="num"></div>
+              <div class="num"></div>
+              <div class="num"></div>
+              <div class="num"></div>
+              <div class="num"></div>
+              <div class="num"></div>
+            </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="bottom-lottery">
-    <div class="num_bg_box">
-        <div class="num_bg"></div>
-        <div class="num_bg"></div>
-        <div class="num_bg"></div>
-        <div class="num_bg"></div>
-        <div class="num_bg"></div>
-        <div class="num_bg"></div>
-        <div class="num_bg"></div>
-      </div>
-      <div class="num_box">
-        <div class="num"></div>
-        <div class="num"></div>
-        <div class="num"></div>
-        <div class="num"></div>
-        <div class="num"></div>
-        <div class="num"></div>
-        <div class="num"></div>
-      </div>
     <div class="btn-bottom" id="btn-click">开始抽奖</div>
   </div>
   <script src="<%= __public_path__ %>app.js"></script>

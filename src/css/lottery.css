@@ -1,21 +1,67 @@
 .lottery-bg {
-  width: 2180px;
-  height: 685px;
-  background-size: 2180px 685px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -342px;
-  margin-left: -1090px;
+  width: 95%;
+  height: 50%;
+  border: 3px solid;
+  margin: 36px auto;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-image: -webkit-linear-gradient(red, blue) 30 30;
+  border-image: -moz-linear-gradient(red, blue) 30 30;
+  border-image: linear-gradient(red, blue) 30 30;
 }
 
+.result {
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.result-parent {
+  flex: 1;
+  color: red;
+}
+
+.result-children {
+  width: 20%;
+  padding: 8px 0px;
+  overflow: hidden;
+  font-size: 40px;
+  float: left;
+  margin-bottom: 2px;
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-items: center;
+  color: #fff;
+}
+
+.result-children span,
+.result-children a {
+  flex: 1;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  -webkit-flex: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  color: #331f96;
+}
 
 .num_bg_box,
 .num_box {
   position: absolute;
-  left: 115px;
   width: 900px;
   height: 160px;
+  left: 50%;
+  height: 50%;
+  margin-left: -450px;
+  margin-top: -80px;
   display: flex;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -36,7 +82,9 @@
 }
 
 .num_bg {
-  background: url(../img/num_bg1.png) no-repeat center;
+  border: 5px solid #331f96;
+  border-radius: 10px;
+  margin-right: 8px;
 }
 
 .num {
@@ -54,59 +102,16 @@
   margin-top: 10px;
 }
 
-.result {
-  width: 95%;
-  height: 99%;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 65px;
-  color: #000;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  border: 3px solid;
-  border-image: -webkit-linear-gradient(red, blue) 30 30;
-  border-image: -moz-linear-gradient(red, blue) 30 30;
-  border-image: linear-gradient(red, blue) 30 30;
-}
-
-.result-parent {
-  flex: 1;
-  color: red;
-}
-
-.result-children {
-  width: 20%;
-  overflow-x: hidden;
-  padding: 20px 0;
-  font-size: 40px;
-  float: left;
-  display: flex;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-align-items: center;
-  text-align: center;
-}
-
-.result-children span,
-.result-children a {
-  flex: 1;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  -webkit-flex: 1;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  color: red;
-}
 .bottom-lottery {
   width: 2180px;
   position: absolute;
   bottom: 50px;
   left: 50%;
   margin-left: -1090px;
+}
+.dis-block {
+  display: flex;
+}
+.dis-none {
+  display: none;
 }

@@ -14,7 +14,7 @@ const Lottery = {
   _totalTimes: 1,
   start: function (duration) {
     this._running = true
-    $('#btn-click').html('停止')
+    $('#btn-click').html('停止抽奖')
     let i = 0
     const fn = () => {
       $('.num').each(function (index) {
@@ -34,7 +34,7 @@ const Lottery = {
   stopScroll: function () {
     this._running = false
     clearInterval(this._intervalScroll)
-    $('#btn-click').html('开始')
+    $('#btn-click').html('开始抽奖')
   },
   stop: function (users) {
     $('#btn-click').html('中奖者产生中...')
@@ -73,7 +73,7 @@ const Lottery = {
     })
   },
   writeHtml: function (user) {
-    if ($('.result-parent').html().match('抽奖')) {
+    if ($('.result-parent').html().match('num_bg_box')) {
       $('.result-parent').html('')
     }
     const string = '<div class="result-children"><span>' + user.name + '(' + user.department + ')</span></div>'
@@ -92,6 +92,11 @@ const Lottery = {
   }
 }
 module.exports = function () {
+  const yHeight = window.innerHeight - 395
+  console.log(window.innerHeight)
+  $('.lottery-bg').css({
+    height: yHeight
+  })
   // 页面初始化,通过接口获取参数
   Lottery._totalNum = $('#total-num').html()
   Lottery._totalTimes = $('#total-times').html()
@@ -121,7 +126,8 @@ module.exports = function () {
           }, Lottery._totalNum * 500)
           return
         }
-        $('.result-parent').html('抽奖进行中')
+        const strings = '<div class="num_bg_box"><div class="num_bg"></div><div class="num_bg"></div><div class="num_bg"></div><div class="num_bg"></div><div class="num_bg"></div><div class="num_bg"></div><div class="num_bg"></div></div><div class="num_box"><div class="num"></div><div class="num"></div><div class="num"></div><div class="num"></div><div class="num"></div><div class="num"></div><div class="num"></div></div>'
+        $('.result-parent').html(strings)
         Lottery.start(200)
       })
     } else {
