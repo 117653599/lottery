@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 const logger = require('morgan');
 const compression = require('compression');
 const cookieParser = require('cookie-parser');
@@ -17,7 +17,7 @@ app.set('view engine', 'html')
 
 // uncomment after placing your favicon in /src
 app.use(express.static(path.join(__dirname, 'src')));
-app.use(favicon(path.join(__dirname, 'src', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'src', 'favicon.ico')));
 
 app.use(compression());
 app.use(logger('dev'));

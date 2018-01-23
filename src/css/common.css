@@ -10,6 +10,15 @@ body {
   -moz-background-size: 100% 100%;
 }
 
+input[type="button"] {
+  outline: none;
+  cursor: pointer;
+}
+
+button {
+  outline: none;
+}
+
 .logo {
   background: url(../img/logo.png) no-repeat top;
   width: 237px;
@@ -54,10 +63,6 @@ body {
   margin-left: -275px;
 }
 
-input[type="button"] {
-  outline: none;
-}
-
 .main-bg {
   background-size: 1130px 400px;
   height: 560px;
@@ -71,7 +76,7 @@ input[type="button"] {
 }
 
 .home-result {
-  width: 930px;
+  width: 100%;
   height: 360px;
   margin: 70px auto;
   margin-bottom: 30px;
@@ -88,21 +93,22 @@ input[type="button"] {
   width: 100%;
   margin-top: 50px;
 }
-.btns .btn-children{
+
+.btns button {
+  font-size: 20px;
+  border: 2px solid #331f96;
+}
+.btns .btn-children {
   float: right;
-  width: 125px;
+  width: 150px;
   margin-left: 5px;
   height: 60px;
   background-color: #fff;
 }
-.btns .btn-children{
-  float: right;
-  width: 125px;
+
+.btns .btn-children-2 {
+  width: 150px;
   margin-left: 5px;
   height: 60px;
 }
-.btns .btn-children-2{
-  width: 125px;
-  margin-left: 5px;
-  height: 60px;
-}
+

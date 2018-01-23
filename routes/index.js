@@ -14,6 +14,9 @@ exports.init = app => {
   app.get('/', home)
   app.get('/lottery', lottery)
   app.get('/detail', detail)
+  app.get('/start', (req, res) => {
+    res.render('start')
+  })
   // API
   app.get('/userslist', usersList)
   app.get('/list', list)

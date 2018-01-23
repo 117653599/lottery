@@ -10,6 +10,10 @@ module.exports = function () {
   $('#list').on('click', () => {
     window.open('/detail')
   })
+  // 打开开始页面
+  $('#start').on('click', () => {
+    window.open('/start')
+  })
   // 导入数据
   $('#load').on('click', () => {
     $.get('/load?' + Math.random() * 1000, result => {
