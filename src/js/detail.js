@@ -6,6 +6,11 @@ require('../../src/lib/tableExport')
 require('../../src/lib/jquery.base64')
 module.exports = function () {
   $(function () {
+    const yHeight = window.innerHeight - 395
+    console.log(window.innerHeight)
+    $('.detail-bg').css({
+      height: yHeight
+    })
     $('.dowebok').liMarquee({
       direction: 'up'
     })

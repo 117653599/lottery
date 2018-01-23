@@ -3,6 +3,7 @@ const $ = require('jquery')
 require('jquery.easing')
 
 const Lottery = {
+  _picHeight: 120,
   _type: -1,
   _running: false,
   _intervalScroll: null,
@@ -13,9 +14,19 @@ const Lottery = {
   _totalTimes: 1,
   start: function (duration) {
     this._running = true
-    $('.btn').html('停止')
+    $('#btn-click').html('停止')
+    let i = 0
     const fn = () => {
-      console.log('一直滚')
+      $('.num').each(function (index) {
+        const _num = $(this)
+        index += i++
+        _num.animate({
+          backgroundPositionY: (Lottery._picHeight * 60) - (Lottery._picHeight * index)
+        }, {
+          duration: 200,
+          easing: 'easeOutQuad'
+        })
+      })
     }
     this._intervalScroll = setInterval(fn, duration)
     return this._intervalScroll
@@ -23,10 +34,10 @@ const Lottery = {
   stopScroll: function () {
     this._running = false
     clearInterval(this._intervalScroll)
-    $('.btn').html('开始')
+    $('#btn-click').html('开始')
   },
   stop: function (users) {
-    $('.btn').html('中奖者产生中...')
+    $('#btn-click').html('中奖者产生中...')
     const fn = function () {
       console.log(users)
       Lottery.randomUser(users)
@@ -65,7 +76,7 @@ const Lottery = {
     if ($('.result-parent').html().match('抽奖')) {
       $('.result-parent').html('')
     }
-    const string = '<div class="result-children"><span>' + user.code + '(' + user.department + ')</span></div>'
+    const string = '<div class="result-children"><span>' + user.name + '(' + user.department + ')</span></div>'
     $('.result-parent').append(string)
   },
   restart: function () {
@@ -75,7 +86,7 @@ const Lottery = {
       Lottery._totalTimes = Lottery._totalTimes - 1
     }
     if (Lottery._totalTimes === 0) {
-      $('.btn').attr('disabled', 'true')
+      $('#btn-click').attr('disabled', 'true')
     }
     $('#total-times').html(Lottery._totalTimes)
   }
@@ -99,7 +110,7 @@ module.exports = function () {
   $.get('/userslist?v=' + Math.random() * 100000, result => {
     console.log(result.data.length)
     if (result.data.length) {
-      $('.btn').click(function () {
+      $('#btn-click').click(function () {
         if (Lottery._running) {
           Lottery.stop(result.data)
           setTimeout(() => {

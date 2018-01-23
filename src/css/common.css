@@ -13,37 +13,53 @@ body {
 
 .logo {
   background: url(../img/logo.png) no-repeat top;
-  width: 320px;
-  height: 80px;
+  width: 237px;
+  height: 58px;
   position: absolute;
-  left: 20px;
-  top: 20px;
-  z-index: 1000;
+  left: 54px;
+  top: 44px;
   display: block;
 }
 
-.btn {
+.title-top {
   background:url(../img/title.png) center no-repeat;
-  background-size: 500px;
-  z-index: 1000;
-  width: 500px;
-  height: 80px;
+  background-size: 663px;
+  width: 663px;
+  height: 104px;
+  line-height: 104px;
   display: block;
-  margin: 70px auto 36px;
+  margin: 70px auto 0;
+  text-align: center;
+  font-size: 42px;
+  color: #331f96;
+  border: 0
+}
+
+.btn-bottom {
+  background:url(../img/button_bg.png) center no-repeat;
+  background-size: 550px;
+  width: 550px;
+  height: 78px;
+  line-height: 78px;
+  display: block;
   cursor: pointer;
   text-align: center;
-  font-size: 50px;
-  color: #e00d1e;
-  padding-top: 10px;
-  border: 0
+  font-size: 52px;
+  border: 0;
+  color: #fff;
+  letter-spacing: 5px;
+  position: absolute;
+  bottom: 0; 
+  left: 50%;
+  margin-bottom: 70px;
+  margin-left: -275px;
 }
 
 input[type="button"] {
   outline: none;
 }
 
-.main_bg {
-  background:url(../img/list_bg.png) center 40px no-repeat;
+.main-bg {
   background-size: 1130px 400px;
   height: 560px;
   width: 1130px;
@@ -52,6 +68,21 @@ input[type="button"] {
   left: 50%;
   margin-top: -250px;
   margin-left: -565px;
+  display: block;
+}
+
+.home-result {
+  width: 930px;
+  height: 360px;
+  margin: 70px auto;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 65px;
+  color: #000;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 
 .btns {

@@ -1,33 +1,40 @@
-.detail_body {
+.detail-body {
   background: url(../img/list_bg.png) no-repeat fixed top;
   background-size: 100% 100%;
   -moz-background-size: 100% 100%;
-  background-color: #fbf8ec;
+  overflow: inherit;
 }
 
-.btn-cursor {
-  cursor: default;
-}
-
-.detail_bg {
-  width: 1126px;
-  height: 907px;
-  margin: 0 auto;
-  border: 1px solid #ccc;
+.detail-bg {
+  width: 80%;
+  height: 80%;
+  border: 3px solid;
+  margin: 36px auto;
+  position: relative;
   display: block;
-  overflow: hidden;
+  border-image: -webkit-linear-gradient(red, blue) 30 30;
+  border-image: -moz-linear-gradient(red, blue) 30 30;
+  border-image: linear-gradient(red, blue) 30 30;
+}
+
+.detail-bg .detail-bg-opa {
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  position: absolute;
+  background-color: #fff;
 }
 
 .dowebok {
   width: 100%;
-  height: 380px;
-  margin: 50px auto;
-  font-size: 40px;
+  height: 100%;
 }
 
 .dowebok ul {
-  margin: 0;
+  width: 90%;
+  margin: 0 auto;
   line-height: 50px;
+  padding: 0;
 }
 
 .dowebok li {
@@ -35,4 +42,18 @@
   min-height: 30px;
   display: block;
   height: auto;
+  color: rgb(51, 31, 250);
+}
+.dowebok .title {
+  width: 100%;
+  font-size: 36px;
+  padding: 20px 0 10px;
+  display: block
+}
+.dowebok .content {
+  font-size: 24px;
+  width: 25%;
+  display: block;
+  float: left;
+  overflow: hidden;
 }

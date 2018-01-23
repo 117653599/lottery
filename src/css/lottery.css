@@ -1,3 +1,15 @@
+.lottery-bg {
+  width: 2180px;
+  height: 685px;
+  background-size: 2180px 685px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -342px;
+  margin-left: -1090px;
+}
+
+
 .num_bg_box,
 .num_box {
   position: absolute;
@@ -34,7 +46,6 @@
 }
 
 .num_header {
-  /* background:url(images/header.png) top  repeat-y; */
   background-size: 90px 720px;
   width: 102px;
   height: 120px;
@@ -44,10 +55,9 @@
 }
 
 .result {
-  width: 930px;
-  height: 360px;
-  margin: 70px auto;
-  margin-bottom: 30px;
+  width: 95%;
+  height: 99%;
+  margin: 0 auto;
   text-align: center;
   font-size: 65px;
   color: #000;
@@ -55,6 +65,10 @@
   display: flex;
   align-items: center;
   overflow: hidden;
+  border: 3px solid;
+  border-image: -webkit-linear-gradient(red, blue) 30 30;
+  border-image: -moz-linear-gradient(red, blue) 30 30;
+  border-image: linear-gradient(red, blue) 30 30;
 }
 
 .result-parent {
@@ -63,12 +77,10 @@
 }
 
 .result-children {
-  width: 180px;
-  height: 60px;
-  overflow: hidden;
-  margin: 0 4px 4px 0;
-  border: 1px solid #eee;
-  font-size: 20px;
+  width: 20%;
+  overflow-x: hidden;
+  padding: 20px 0;
+  font-size: 40px;
   float: left;
   display: flex;
   display: -webkit-box;
@@ -79,7 +91,6 @@
   align-items: center;
   -webkit-align-items: center;
   text-align: center;
-  background: #fff;
 }
 
 .result-children span,
@@ -91,4 +102,11 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   color: red;
+}
+.bottom-lottery {
+  width: 2180px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  margin-left: -1090px;
 }
