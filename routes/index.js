@@ -8,6 +8,7 @@ const usersList = require('./userslist')
 const load = require('./load')
 const add = require('./add')
 const del = require('./delete')
+const downloads = require('./download')
 
 exports.init = app => {
   // 页面
@@ -17,6 +18,7 @@ exports.init = app => {
   app.get('/start', (req, res) => {
     res.render('start')
   })
+  app.get('/downloads', downloads)
   // API
   app.get('/userslist', usersList)
   app.get('/list', list)

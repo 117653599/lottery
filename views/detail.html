@@ -30,21 +30,6 @@
           <% } %>
         </ul>
       </div>
-      <div id="table-id" style="display: none;">
-        <table>
-          <% for (var i = 0; i < data.length; i++) { %>
-            <tr>
-              <td>工号:<%= data[i][0] %></td>
-              <td>姓名:<%= data[i][1] %></td>
-              <td>部门:<%= data[i][2] %></td>
-              <% if (data[i][3]) { %>
-                <td>奖项:<%= data[i][3] %>等奖</td>
-              <% } %>
-            </tr>
-          <% } %>
-        </table>
-      </div>
-      <!-- <button id="table-export">导出中奖名单</button> -->
     </div>
      <div class="btn-bottom" id="table-export">导出获奖名单</div>
   </div>
